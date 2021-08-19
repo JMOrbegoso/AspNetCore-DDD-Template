@@ -7,9 +7,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0C213F95-E4A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D3B7723A-67D6-4C53-8069-1452839D5925}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD-Template.Domain", "src\DDD-Template.Domain\DDD-Template.Domain.csproj", "{A96FF661-E730-48EF-941B-FE5719EC10E5}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A96FF661-E730-48EF-941B-FE5719EC10E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A96FF661-E730-48EF-941B-FE5719EC10E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A96FF661-E730-48EF-941B-FE5719EC10E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A96FF661-E730-48EF-941B-FE5719EC10E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A96FF661-E730-48EF-941B-FE5719EC10E5} = {0C213F95-E4A9-4A9E-9283-5BFA9E88B4E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CFFAEFE4-846B-4A62-BE8D-D5B7714DAF30}
