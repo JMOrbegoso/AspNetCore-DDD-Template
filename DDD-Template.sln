@@ -7,9 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0C213F95-E4A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D3B7723A-67D6-4C53-8069-1452839D5925}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD-Template.Domain", "src\DDD-Template.Domain\DDD-Template.Domain.csproj", "{A96FF661-E730-48EF-941B-FE5719EC10E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD-Template.Domain", "src\DDD-Template.Domain\DDD-Template.Domain.csproj", "{A96FF661-E730-48EF-941B-FE5719EC10E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD-Template.Domain.UnitTests", "tests\DDD-Template.Domain.UnitTests\DDD-Template.Domain.UnitTests.csproj", "{8BE40AF6-C6DD-401B-8236-2ECD2CDF5349}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDD-Template.Domain.UnitTests", "tests\DDD-Template.Domain.UnitTests\DDD-Template.Domain.UnitTests.csproj", "{8BE40AF6-C6DD-401B-8236-2ECD2CDF5349}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDD-Template.TestHelpers", "tests\DDD-Template.TestHelpers\DDD-Template.TestHelpers.csproj", "{ED75209D-7178-4E6D-BD30-1FB2FD92015F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{8BE40AF6-C6DD-401B-8236-2ECD2CDF5349}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BE40AF6-C6DD-401B-8236-2ECD2CDF5349}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BE40AF6-C6DD-401B-8236-2ECD2CDF5349}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED75209D-7178-4E6D-BD30-1FB2FD92015F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED75209D-7178-4E6D-BD30-1FB2FD92015F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED75209D-7178-4E6D-BD30-1FB2FD92015F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED75209D-7178-4E6D-BD30-1FB2FD92015F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A96FF661-E730-48EF-941B-FE5719EC10E5} = {0C213F95-E4A9-4A9E-9283-5BFA9E88B4E8}
 		{8BE40AF6-C6DD-401B-8236-2ECD2CDF5349} = {D3B7723A-67D6-4C53-8069-1452839D5925}
+		{ED75209D-7178-4E6D-BD30-1FB2FD92015F} = {D3B7723A-67D6-4C53-8069-1452839D5925}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CFFAEFE4-846B-4A62-BE8D-D5B7714DAF30}
