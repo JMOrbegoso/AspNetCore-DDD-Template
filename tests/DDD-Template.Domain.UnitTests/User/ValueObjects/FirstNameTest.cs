@@ -1,8 +1,8 @@
 ﻿using DDD_Template.Domain.User.Exceptions;
 using DDD_Template.Domain.User.ValueObjects;
+using DDD_Template.TestHelpers;
 using FluentAssertions;
 using System;
-using System.Linq;
 using Xunit;
 
 namespace DDD_Template.Domain.UnitTests.User.ValueObjects
@@ -36,11 +36,15 @@ namespace DDD_Template.Domain.UnitTests.User.ValueObjects
             act.Should().Throw<FirstNameIsEmptyException>();
         }
 
-        [Fact]
-        public void Expected_throw_FirstNameIsTooLongException()
+        [Theory]
+        [InlineData(256)]
+        [InlineData(400)]
+        [InlineData(1000)]
+        [InlineData(10000)]
+        public void Expected_throw_FirstNameIsTooLongException(int length)
         {
             // Arrange
-            var firstNameString = String.Concat(Enumerable.Repeat("John", 64));
+            var firstNameString = StringHelpers.RandomStringGenerator(length);
 
             // Act
             var act = new Action(() => FirstName.Create(firstNameString));
