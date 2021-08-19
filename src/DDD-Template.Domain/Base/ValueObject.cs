@@ -1,6 +1,8 @@
-﻿namespace DDD_Template.Domain.Base
+﻿using System;
+
+namespace DDD_Template.Domain.Base
 {
-    public abstract record ValueObject<T>
+    public abstract record ValueObject<T> where T : IEquatable<T>
     {
         public T Value { get; }
 
