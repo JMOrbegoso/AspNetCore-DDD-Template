@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\DDD-Template.Domain\DDD-Template.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
