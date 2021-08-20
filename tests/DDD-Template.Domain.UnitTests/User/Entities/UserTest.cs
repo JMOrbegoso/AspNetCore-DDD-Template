@@ -19,8 +19,8 @@ namespace DDD_Template.Domain.UnitTests.User.Entities
 
             // Assert
             user.Id.Should().Be(id);
-            user.FirstName.Value.Should().Be(firstName);
-            user.LastName.Value.Should().Be(lastName);
+            user.GetFirstName().Should().Be(firstName);
+            user.GetLastName().Should().Be(lastName);
         }
 
         [Fact]
@@ -35,8 +35,8 @@ namespace DDD_Template.Domain.UnitTests.User.Entities
 
             // Assert
             user.Id.Should().NotBeEmpty();
-            user.FirstName.Value.Should().Be(firstName);
-            user.LastName.Value.Should().Be(lastName);
+            user.GetFirstName().Should().Be(firstName);
+            user.GetLastName().Should().Be(lastName);
         }
 
         [Fact]
@@ -54,8 +54,8 @@ namespace DDD_Template.Domain.UnitTests.User.Entities
 
             // Assert
             user.Id.Should().Be(id);
-            user.FirstName.Value.Should().Be(newFirstName);
-            user.LastName.Value.Should().Be(lastName);
+            user.GetFirstName().Should().Be(newFirstName);
+            user.GetLastName().Should().Be(lastName);
         }
 
         [Fact]
@@ -73,8 +73,8 @@ namespace DDD_Template.Domain.UnitTests.User.Entities
 
             // Assert
             user.Id.Should().Be(id);
-            user.FirstName.Value.Should().Be(firstName);
-            user.LastName.Value.Should().Be(newLastName);
+            user.GetFirstName().Should().Be(firstName);
+            user.GetLastName().Should().Be(newLastName);
         }
 
         [Fact]
