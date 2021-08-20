@@ -6,8 +6,11 @@ namespace DDD_Template.Domain.User.Entities
 {
     public sealed class User : Entity
     {
-        public FirstName FirstName { get; private set; }
-        public LastName LastName { get; private set; }
+        private FirstName FirstName { get; set; }
+        public string GetFirstName() => this.FirstName.Value;
+
+        private LastName LastName { get; set; }
+        public string GetLastName() => this.LastName.Value;
 
         private User(Guid id, string firstName, string lastName) : base(id)
         {
