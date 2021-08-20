@@ -71,11 +71,10 @@ namespace DDD_Template.Domain.UnitTests.User.ValueObjects
         {
             // Arrange
             var originalFirstNameString = "John";
-            var otherFirstNameString = "John";
 
             // Act
             var originalFirstName = FirstName.Create(originalFirstNameString);
-            var otherFirstName = FirstName.Create(otherFirstNameString);
+            var otherFirstName = FirstName.Create(originalFirstNameString);
 
             // Assert
             originalFirstName.Equals(otherFirstName).Should().BeTrue();
@@ -86,11 +85,10 @@ namespace DDD_Template.Domain.UnitTests.User.ValueObjects
         {
             // Arrange
             var originalFirstNameString = "John";
-            var otherFirstNameString = "John";
 
             // Act
             var originalFirstName = FirstName.Create(originalFirstNameString);
-            var otherFirstName = FirstName.Create(otherFirstNameString);
+            var otherFirstName = FirstName.Create(originalFirstNameString);
 
             // Assert
             (originalFirstName == otherFirstName).Should().BeTrue();
