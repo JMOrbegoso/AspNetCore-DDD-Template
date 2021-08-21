@@ -15,44 +15,32 @@ namespace DDD_Template.Domain.User.Entities
         private Email _email { get; set; }
         public string GetEmail() => this._email.Value;
 
-        private User(Guid id, string firstName, string lastName, string email) : base(id)
+        private User(Guid id, FirstName firstName, LastName lastName, Email email) : base(id)
         {
-            this._firstName = FirstName.Create(firstName);
-            this._lastName = LastName.Create(lastName);
-            this._email = Email.Create(email);
+            this._firstName = firstName;
+            this._lastName = lastName;
+            this._email = email;
         }
 
-        public static User Create(string firstName, string lastName, string email)
+        public static User Create(FirstName firstName, LastName lastName, Email email)
         {
             return new User(Guid.NewGuid(), firstName, lastName, email);
         }
-        public static User Create(Guid id, string firstName, string lastName, string email)
+        public static User Create(Guid id, FirstName firstName, LastName lastName, Email email)
         {
             return new User(id, firstName, lastName, email);
         }
 
-        public void UpdateFirstName(string firstName)
-        {
-            this._firstName = FirstName.Create(firstName);
-        }
         public void UpdateFirstName(FirstName firstName)
         {
             this._firstName = firstName;
         }
 
-        public void UpdateLastName(string lastName)
-        {
-            this._lastName = LastName.Create(lastName);
-        }
         public void UpdateLastName(LastName lastName)
         {
             this._lastName = lastName;
         }
 
-        public void UpdateEmail(string email)
-        {
-            this._email = Email.Create(email);
-        }
         public void UpdateEmail(Email email)
         {
             this._email = email;
