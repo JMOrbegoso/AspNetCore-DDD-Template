@@ -6,20 +6,20 @@ namespace DDD_Template.Domain.User.Entities
 {
     public sealed class User : Entity
     {
-        private FirstName FirstName { get; set; }
-        public string GetFirstName() => this.FirstName.Value;
+        private FirstName _firstName { get; set; }
+        public string GetFirstName() => this._firstName.Value;
 
-        private LastName LastName { get; set; }
-        public string GetLastName() => this.LastName.Value;
+        private LastName _lastName { get; set; }
+        public string GetLastName() => this._lastName.Value;
 
-        private Email Email { get; set; }
-        public string GetEmail() => this.Email.Value;
+        private Email _email { get; set; }
+        public string GetEmail() => this._email.Value;
 
         private User(Guid id, string firstName, string lastName, string email) : base(id)
         {
-            this.FirstName = FirstName.Create(firstName);
-            this.LastName = LastName.Create(lastName);
-            this.Email = Email.Create(email);
+            this._firstName = FirstName.Create(firstName);
+            this._lastName = LastName.Create(lastName);
+            this._email = Email.Create(email);
         }
 
         public static User Create(string firstName, string lastName, string email)
@@ -33,29 +33,29 @@ namespace DDD_Template.Domain.User.Entities
 
         public void UpdateFirstName(string firstName)
         {
-            this.FirstName = FirstName.Create(firstName);
+            this._firstName = FirstName.Create(firstName);
         }
         public void UpdateFirstName(FirstName firstName)
         {
-            this.FirstName = firstName;
+            this._firstName = firstName;
         }
 
         public void UpdateLastName(string lastName)
         {
-            this.LastName = LastName.Create(lastName);
+            this._lastName = LastName.Create(lastName);
         }
         public void UpdateLastName(LastName lastName)
         {
-            this.LastName = lastName;
+            this._lastName = lastName;
         }
 
         public void UpdateEmail(string email)
         {
-            this.Email = Email.Create(email);
+            this._email = Email.Create(email);
         }
         public void UpdateEmail(Email email)
         {
-            this.Email = email;
+            this._email = email;
         }
     }
 }
