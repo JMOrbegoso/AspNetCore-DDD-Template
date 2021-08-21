@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using DDD_Template.Domain.User.ValueObjects;
+using FluentAssertions;
 using System;
 using Xunit;
 
@@ -11,34 +12,36 @@ namespace DDD_Template.Domain.UnitTests.User.Entities
         {
             // Arrange
             var id = Guid.NewGuid();
-            var firstName = "John";
-            var lastName = "Doe";
-            var email = "john@doe.com";
+            var firstName = FirstName.Create("John");
+            var lastName = LastName.Create("Doe");
+            var email = Email.Create("john@doe.com");
 
             // Act
             var user = Domain.User.Entities.User.Create(id, firstName, lastName, email);
 
             // Assert
             user.Id.Should().Be(id);
-            user.GetFirstName().Should().Be(firstName);
-            user.GetLastName().Should().Be(lastName);
+            user.GetFirstName().Should().Be(firstName.Value);
+            user.GetLastName().Should().Be(lastName.Value);
+            user.GetEmail().Should().Be(email.Value);
         }
 
         [Fact]
         public void Expected_Create_User_without_Id()
         {
             // Arrange
-            var firstName = "John";
-            var lastName = "Doe";
-            var email = "john@doe.com";
+            var firstName = FirstName.Create("John");
+            var lastName = LastName.Create("Doe");
+            var email = Email.Create("john@doe.com");
 
             // Act
             var user = Domain.User.Entities.User.Create(firstName, lastName, email);
 
             // Assert
             user.Id.Should().NotBeEmpty();
-            user.GetFirstName().Should().Be(firstName);
-            user.GetLastName().Should().Be(lastName);
+            user.GetFirstName().Should().Be(firstName.Value);
+            user.GetLastName().Should().Be(lastName.Value);
+            user.GetEmail().Should().Be(email.Value);
         }
 
         [Fact]
@@ -46,10 +49,10 @@ namespace DDD_Template.Domain.UnitTests.User.Entities
         {
             // Arrange
             var id = Guid.NewGuid();
-            var originalFirstName = "John";
-            var newFirstName = "Johny";
-            var lastName = "Doe";
-            var email = "john@doe.com";
+            var originalFirstName = FirstName.Create("John");
+            var newFirstName = FirstName.Create("Johny");
+            var lastName = LastName.Create("Doe");
+            var email = Email.Create("john@doe.com");
 
             // Act
             var user = Domain.User.Entities.User.Create(id, originalFirstName, lastName, email);
@@ -57,8 +60,9 @@ namespace DDD_Template.Domain.UnitTests.User.Entities
 
             // Assert
             user.Id.Should().Be(id);
-            user.GetFirstName().Should().Be(newFirstName);
-            user.GetLastName().Should().Be(lastName);
+            user.GetFirstName().Should().Be(newFirstName.Value);
+            user.GetLastName().Should().Be(lastName.Value);
+            user.GetEmail().Should().Be(email.Value);
         }
 
         [Fact]
@@ -66,10 +70,10 @@ namespace DDD_Template.Domain.UnitTests.User.Entities
         {
             // Arrange
             var id = Guid.NewGuid();
-            var firstName = "John";
-            var originalLastName = "Doe";
-            var newLastName = "Doeh";
-            var email = "john@doe.com";
+            var firstName = FirstName.Create("John");
+            var originalLastName = LastName.Create("Doe");
+            var newLastName = LastName.Create("Doeh");
+            var email = Email.Create("john@doe.com");
 
             // Act
             var user = Domain.User.Entities.User.Create(id, firstName, originalLastName, email);
@@ -77,8 +81,9 @@ namespace DDD_Template.Domain.UnitTests.User.Entities
 
             // Assert
             user.Id.Should().Be(id);
-            user.GetFirstName().Should().Be(firstName);
-            user.GetLastName().Should().Be(newLastName);
+            user.GetFirstName().Should().Be(firstName.Value);
+            user.GetLastName().Should().Be(newLastName.Value);
+            user.GetEmail().Should().Be(email.Value);
         }
 
         [Fact]
@@ -86,10 +91,10 @@ namespace DDD_Template.Domain.UnitTests.User.Entities
         {
             // Arrange
             var id = Guid.NewGuid();
-            var firstName = "John";
-            var lastName = "Doe";
-            var originalEmail = "john@doe.com";
-            var newEmail = "johny@doeh.com";
+            var firstName = FirstName.Create("John");
+            var lastName = LastName.Create("Doe");
+            var originalEmail = Email.Create("john@doe.com");
+            var newEmail = Email.Create("johny@doeh.com");
 
             // Act
             var user = Domain.User.Entities.User.Create(id, firstName, lastName, originalEmail);
@@ -97,9 +102,9 @@ namespace DDD_Template.Domain.UnitTests.User.Entities
 
             // Assert
             user.Id.Should().Be(id);
-            user.GetFirstName().Should().Be(firstName);
-            user.GetLastName().Should().Be(lastName);
-            user.GetEmail().Should().Be(newEmail);
+            user.GetFirstName().Should().Be(firstName.Value);
+            user.GetLastName().Should().Be(lastName.Value);
+            user.GetEmail().Should().Be(newEmail.Value);
         }
 
         [Fact]
@@ -107,12 +112,12 @@ namespace DDD_Template.Domain.UnitTests.User.Entities
         {
             // Arrange
             var id = Guid.NewGuid();
-            var user1FirstName = "John";
-            var user2FirstName = "Johny";
-            var user1LastName = "Doe";
-            var user2LastName = "Doeh";
-            var user1Email = "john@doe.com";
-            var user2Email = "johny@doeh.com";
+            var user1FirstName = FirstName.Create("John");
+            var user2FirstName = FirstName.Create("Johny");
+            var user1LastName = LastName.Create("Doe");
+            var user2LastName = LastName.Create("Doeh");
+            var user1Email = Email.Create("john@doe.com");
+            var user2Email = Email.Create("johny@doeh.com");
 
             // Act
             var user1 = Domain.User.Entities.User.Create(id, user1FirstName, user1LastName, user1Email);
@@ -128,12 +133,12 @@ namespace DDD_Template.Domain.UnitTests.User.Entities
         {
             // Arrange
             var id = Guid.NewGuid();
-            var user1FirstName = "John";
-            var user2FirstName = "Johny";
-            var user1LastName = "Doe";
-            var user2LastName = "Doeh";
-            var user1Email = "john@doe.com";
-            var user2Email = "johny@doeh.com";
+            var user1FirstName = FirstName.Create("John");
+            var user2FirstName = FirstName.Create("Johny");
+            var user1LastName = LastName.Create("Doe");
+            var user2LastName = LastName.Create("Doeh");
+            var user1Email = Email.Create("john@doe.com");
+            var user2Email = Email.Create("johny@doeh.com");
 
             // Act
             var user1 = Domain.User.Entities.User.Create(id, user1FirstName, user1LastName, user1Email);
@@ -150,9 +155,9 @@ namespace DDD_Template.Domain.UnitTests.User.Entities
             // Arrange
             var user1Id = Guid.NewGuid();
             var user2Id = Guid.NewGuid();
-            var firstName = "John";
-            var lastName = "Doe";
-            var email = "john@doe.com";
+            var firstName = FirstName.Create("John");
+            var lastName = LastName.Create("Doe");
+            var email = Email.Create("john@doe.com");
 
             // Act
             var user1 = Domain.User.Entities.User.Create(user1Id, firstName, lastName, email);
@@ -169,9 +174,9 @@ namespace DDD_Template.Domain.UnitTests.User.Entities
             // Arrange
             var user1Id = Guid.NewGuid();
             var user2Id = Guid.NewGuid();
-            var firstName = "John";
-            var lastName = "Doe";
-            var email = "john@doe.com";
+            var firstName = FirstName.Create("John");
+            var lastName = LastName.Create("Doe");
+            var email = Email.Create("john@doe.com");
 
             // Act
             var user1 = Domain.User.Entities.User.Create(user1Id, firstName, lastName, email);
