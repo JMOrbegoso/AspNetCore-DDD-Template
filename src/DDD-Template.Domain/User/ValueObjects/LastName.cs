@@ -5,7 +5,7 @@ namespace DDD_Template.Domain.User.ValueObjects
 {
     public sealed record LastName : ValueObject<string>
     {
-        public readonly static int MaxLength = 255;
+        public const int MaxLength = 255;
 
         private LastName(string value) : base(value) { }
 
