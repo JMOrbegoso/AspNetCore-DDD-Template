@@ -3,9 +3,9 @@ using FluentAssertions;
 using System;
 using Xunit;
 
-namespace DDD_Template.Domain.UnitTests.User.Entities
+namespace DDD_Template.Domain.UnitTests.User.EntitiesTests
 {
-    public class UserTest
+    public class UserTests
     {
         [Fact]
         public void Expected_Create_User_with_Id()
