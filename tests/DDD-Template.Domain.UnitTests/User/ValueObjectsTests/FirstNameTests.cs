@@ -5,9 +5,9 @@ using FluentAssertions;
 using System;
 using Xunit;
 
-namespace DDD_Template.Domain.UnitTests.User.ValueObjects
+namespace DDD_Template.Domain.UnitTests.User.ValueObjectsTests
 {
-    public class FirstNameTest
+    public class FirstNameTests
     {
         [Theory]
         [InlineData("")]
