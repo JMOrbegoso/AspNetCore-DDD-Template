@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DDD_Template.Domain.User.Exceptions
+namespace DDD_Template.Domain.Users.Exceptions
 {
     public class EmailIsEmptyException : ArgumentNullException
     {

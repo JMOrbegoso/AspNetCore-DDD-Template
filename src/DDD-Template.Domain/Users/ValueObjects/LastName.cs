@@ -1,7 +1,7 @@
 ﻿using DDD_Template.Domain.Base;
-using DDD_Template.Domain.User.Exceptions;
+using DDD_Template.Domain.Users.Exceptions;
 
-namespace DDD_Template.Domain.User.ValueObjects
+namespace DDD_Template.Domain.Users.ValueObjects
 {
     public sealed record LastName : ValueObject<string>
     {

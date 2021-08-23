@@ -1,8 +1,8 @@
 ﻿using DDD_Template.Domain.Base;
-using DDD_Template.Domain.User.ValueObjects;
+using DDD_Template.Domain.Users.ValueObjects;
 using System;
 
-namespace DDD_Template.Domain.User.Entities
+namespace DDD_Template.Domain.Users.Entities
 {
     public sealed class User : Entity
     {

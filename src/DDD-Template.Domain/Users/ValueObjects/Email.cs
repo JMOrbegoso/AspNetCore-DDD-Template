@@ -1,8 +1,8 @@
 ﻿using DDD_Template.Domain.Base;
-using DDD_Template.Domain.User.Exceptions;
+using DDD_Template.Domain.Users.Exceptions;
 using System.Text.RegularExpressions;
 
-namespace DDD_Template.Domain.User.ValueObjects
+namespace DDD_Template.Domain.Users.ValueObjects
 {
     public sealed record Email : ValueObject<string>
     {
