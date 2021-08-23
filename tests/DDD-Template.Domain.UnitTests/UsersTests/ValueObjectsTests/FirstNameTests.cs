@@ -1,11 +1,11 @@
-﻿using DDD_Template.Domain.User.Exceptions;
-using DDD_Template.Domain.User.ValueObjects;
+﻿using DDD_Template.Domain.Users.Exceptions;
+using DDD_Template.Domain.Users.ValueObjects;
 using DDD_Template.TestHelpers;
 using FluentAssertions;
 using System;
 using Xunit;
 
-namespace DDD_Template.Domain.UnitTests.User.ValueObjectsTests
+namespace DDD_Template.Domain.UnitTests.UsersTests.ValueObjectsTests
 {
     public class FirstNameTests
     {

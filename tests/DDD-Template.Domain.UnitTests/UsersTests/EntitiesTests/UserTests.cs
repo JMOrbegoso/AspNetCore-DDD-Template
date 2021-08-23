@@ -1,9 +1,10 @@
-﻿using DDD_Template.Domain.User.ValueObjects;
+﻿using DDD_Template.Domain.Users.Entities;
+using DDD_Template.Domain.Users.ValueObjects;
 using FluentAssertions;
 using System;
 using Xunit;
 
-namespace DDD_Template.Domain.UnitTests.User.EntitiesTests
+namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
 {
     public class UserTests
     {
@@ -17,7 +18,7 @@ namespace DDD_Template.Domain.UnitTests.User.EntitiesTests
             var email = Email.Create("john@doe.com");
 
             // Act
-            var user = Domain.User.Entities.User.Create(id, firstName, lastName, email);
+            var user = User.Create(id, firstName, lastName, email);
 
             // Assert
             user.Id.Should().Be(id);
@@ -35,7 +36,7 @@ namespace DDD_Template.Domain.UnitTests.User.EntitiesTests
             var email = Email.Create("john@doe.com");
 
             // Act
-            var user = Domain.User.Entities.User.Create(firstName, lastName, email);
+            var user = User.Create(firstName, lastName, email);
 
             // Assert
             user.Id.Should().NotBeEmpty();
@@ -55,7 +56,7 @@ namespace DDD_Template.Domain.UnitTests.User.EntitiesTests
             var email = Email.Create("john@doe.com");
 
             // Act
-            var user = Domain.User.Entities.User.Create(id, originalFirstName, lastName, email);
+            var user = User.Create(id, originalFirstName, lastName, email);
             user.UpdateFirstName(newFirstName);
 
             // Assert
@@ -76,7 +77,7 @@ namespace DDD_Template.Domain.UnitTests.User.EntitiesTests
             var email = Email.Create("john@doe.com");
 
             // Act
-            var user = Domain.User.Entities.User.Create(id, firstName, originalLastName, email);
+            var user = User.Create(id, firstName, originalLastName, email);
             user.UpdateLastName(newLastName);
 
             // Assert
@@ -97,7 +98,7 @@ namespace DDD_Template.Domain.UnitTests.User.EntitiesTests
             var newEmail = Email.Create("johny@doeh.com");
 
             // Act
-            var user = Domain.User.Entities.User.Create(id, firstName, lastName, originalEmail);
+            var user = User.Create(id, firstName, lastName, originalEmail);
             user.UpdateEmail(newEmail);
 
             // Assert
@@ -120,8 +121,8 @@ namespace DDD_Template.Domain.UnitTests.User.EntitiesTests
             var user2Email = Email.Create("johny@doeh.com");
 
             // Act
-            var user1 = Domain.User.Entities.User.Create(id, user1FirstName, user1LastName, user1Email);
-            var user2 = Domain.User.Entities.User.Create(id, user2FirstName, user2LastName, user2Email);
+            var user1 = User.Create(id, user1FirstName, user1LastName, user1Email);
+            var user2 = User.Create(id, user2FirstName, user2LastName, user2Email);
             var equality = user1.Equals(user2);
 
             // Assert
@@ -141,8 +142,8 @@ namespace DDD_Template.Domain.UnitTests.User.EntitiesTests
             var user2Email = Email.Create("johny@doeh.com");
 
             // Act
-            var user1 = Domain.User.Entities.User.Create(id, user1FirstName, user1LastName, user1Email);
-            var user2 = Domain.User.Entities.User.Create(id, user2FirstName, user2LastName, user2Email);
+            var user1 = User.Create(id, user1FirstName, user1LastName, user1Email);
+            var user2 = User.Create(id, user2FirstName, user2LastName, user2Email);
             var equality = user1 == user2;
 
             // Assert
@@ -160,8 +161,8 @@ namespace DDD_Template.Domain.UnitTests.User.EntitiesTests
             var email = Email.Create("john@doe.com");
 
             // Act
-            var user1 = Domain.User.Entities.User.Create(user1Id, firstName, lastName, email);
-            var user2 = Domain.User.Entities.User.Create(user2Id, firstName, lastName, email);
+            var user1 = User.Create(user1Id, firstName, lastName, email);
+            var user2 = User.Create(user2Id, firstName, lastName, email);
             var equality = user1.Equals(user2);
 
             // Assert
@@ -179,8 +180,8 @@ namespace DDD_Template.Domain.UnitTests.User.EntitiesTests
             var email = Email.Create("john@doe.com");
 
             // Act
-            var user1 = Domain.User.Entities.User.Create(user1Id, firstName, lastName, email);
-            var user2 = Domain.User.Entities.User.Create(user2Id, firstName, lastName, email);
+            var user1 = User.Create(user1Id, firstName, lastName, email);
+            var user2 = User.Create(user2Id, firstName, lastName, email);
             var equality = user1 == user2;
 
             // Assert
