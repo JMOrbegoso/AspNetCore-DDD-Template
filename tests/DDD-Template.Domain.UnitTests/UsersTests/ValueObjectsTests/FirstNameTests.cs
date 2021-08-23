@@ -37,10 +37,10 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.ValueObjectsTests
         }
 
         [Theory]
-        [InlineData(256)]
-        [InlineData(400)]
+        [InlineData(65)]
+        [InlineData(70)]
+        [InlineData(100)]
         [InlineData(1000)]
-        [InlineData(10000)]
         public void Expected_throw_FirstNameIsTooLongException(int length)
         {
             // Arrange
@@ -53,11 +53,15 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.ValueObjectsTests
             act.Should().Throw<FirstNameIsTooLongException>();
         }
 
-        [Fact]
-        public void Expected_Create_Valid_FirstName()
+        [Theory]
+        [InlineData(1)]
+        [InlineData(10)]
+        [InlineData(30)]
+        [InlineData(64)]
+        public void Expected_Create_Valid_FirstName(int length)
         {
             // Arrange
-            var firstNameString = "John";
+            var firstNameString = StringHelpers.RandomStringGenerator(length);
 
             // Act
             var firstName = FirstName.Create(firstNameString);
