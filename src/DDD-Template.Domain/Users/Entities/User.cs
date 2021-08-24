@@ -15,20 +15,24 @@ namespace DDD_Template.Domain.Users.Entities
         private Email _email { get; set; }
         public string GetEmail() => this._email.Value;
 
-        private User(Guid id, FirstName firstName, LastName lastName, Email email) : base(id)
+        private BirthDate _birthDate { get; set; }
+        public DateTime GetBirthDate() => this._birthDate.Value;
+
+        private User(Guid id, FirstName firstName, LastName lastName, Email email, BirthDate birthDate) : base(id)
         {
             this._firstName = firstName;
             this._lastName = lastName;
             this._email = email;
+            this._birthDate = birthDate;
         }
 
-        public static User Create(FirstName firstName, LastName lastName, Email email)
+        public static User Create(FirstName firstName, LastName lastName, Email email, BirthDate birthDate)
         {
-            return new User(Guid.NewGuid(), firstName, lastName, email);
+            return new User(Guid.NewGuid(), firstName, lastName, email, birthDate);
         }
-        public static User Create(Guid id, FirstName firstName, LastName lastName, Email email)
+        public static User Create(Guid id, FirstName firstName, LastName lastName, Email email, BirthDate birthDate)
         {
-            return new User(id, firstName, lastName, email);
+            return new User(id, firstName, lastName, email, birthDate);
         }
 
         public void UpdateFirstName(FirstName firstName)
@@ -44,6 +48,11 @@ namespace DDD_Template.Domain.Users.Entities
         public void UpdateEmail(Email email)
         {
             this._email = email;
+        }
+
+        public void UpdateBirthDate(BirthDate birthDate)
+        {
+            this._birthDate = birthDate;
         }
     }
 }
