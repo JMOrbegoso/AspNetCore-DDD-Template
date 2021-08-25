@@ -22,9 +22,9 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
 
             // Assert
             user.Id.Should().Be(id);
-            user.GetFirstName().Should().Be(firstName.Value);
-            user.GetLastName().Should().Be(lastName.Value);
-            user.GetBirthDate().Should().Be(birthDate.Value);
+            user.FirstName.Value.Should().Be(firstName.Value);
+            user.LastName.Value.Should().Be(lastName.Value);
+            user.BirthDate.Value.Should().Be(birthDate.Value);
         }
 
         [Fact]
@@ -40,9 +40,9 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
 
             // Assert
             user.Id.Should().NotBeEmpty();
-            user.GetFirstName().Should().Be(firstName.Value);
-            user.GetLastName().Should().Be(lastName.Value);
-            user.GetBirthDate().Should().Be(birthDate.Value);
+            user.FirstName.Value.Should().Be(firstName.Value);
+            user.LastName.Value.Should().Be(lastName.Value);
+            user.BirthDate.Value.Should().Be(birthDate.Value);
         }
 
         [Fact]
@@ -61,9 +61,9 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
 
             // Assert
             user.Id.Should().Be(id);
-            user.GetFirstName().Should().Be(newFirstName.Value);
-            user.GetLastName().Should().Be(lastName.Value);
-            user.GetBirthDate().Should().Be(birthDate.Value);
+            user.FirstName.Value.Should().Be(newFirstName.Value);
+            user.LastName.Value.Should().Be(lastName.Value);
+            user.BirthDate.Value.Should().Be(birthDate.Value);
         }
 
         [Fact]
@@ -82,9 +82,9 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
 
             // Assert
             user.Id.Should().Be(id);
-            user.GetFirstName().Should().Be(firstName.Value);
-            user.GetLastName().Should().Be(newLastName.Value);
-            user.GetBirthDate().Should().Be(birthDate.Value);
+            user.FirstName.Value.Should().Be(firstName.Value);
+            user.LastName.Value.Should().Be(newLastName.Value);
+            user.BirthDate.Value.Should().Be(birthDate.Value);
         }
 
         [Fact]
@@ -103,9 +103,9 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
 
             // Assert
             user.Id.Should().Be(id);
-            user.GetFirstName().Should().Be(firstName.Value);
-            user.GetLastName().Should().Be(lastName.Value);
-            user.GetBirthDate().Should().Be(newBirthDate.Value);
+            user.FirstName.Value.Should().Be(firstName.Value);
+            user.LastName.Value.Should().Be(lastName.Value);
+            user.BirthDate.Value.Should().Be(newBirthDate.Value);
         }
 
         [Fact]
