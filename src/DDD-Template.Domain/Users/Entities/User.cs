@@ -8,12 +8,9 @@ namespace DDD_Template.Domain.Users.Entities
     {
         public FirstName FirstName { get; private set; }
 
-
         public LastName LastName { get; private set; }
 
-
         public BirthDate BirthDate { get; private set; }
-
 
         private User(Guid id, FirstName firstName, LastName lastName, BirthDate birthDate) : base(id)
         {
