@@ -28,7 +28,7 @@ namespace DDD_Template.Domain.Users.Entities
 
         public static User Create(FirstName firstName, LastName lastName, Email email, BirthDate birthDate)
         {
-            return new User(Guid.NewGuid(), firstName, lastName, email, birthDate);
+            return User.Create(Guid.NewGuid(), firstName, lastName, email, birthDate);
         }
         public static User Create(Guid id, FirstName firstName, LastName lastName, Email email, BirthDate birthDate)
         {
