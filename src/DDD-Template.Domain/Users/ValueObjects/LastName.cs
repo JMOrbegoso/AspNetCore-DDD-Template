@@ -1,11 +1,11 @@
 ﻿using DDD_Template.Domain.Base;
-using DDD_Template.Domain.User.Exceptions;
+using DDD_Template.Domain.Users.Exceptions;
 
-namespace DDD_Template.Domain.User.ValueObjects
+namespace DDD_Template.Domain.Users.ValueObjects
 {
     public sealed record LastName : ValueObject<string>
     {
-        public readonly static int MaxLength = 255;
+        public const int MaxLength = 64;
 
         private LastName(string value) : base(value) { }
 

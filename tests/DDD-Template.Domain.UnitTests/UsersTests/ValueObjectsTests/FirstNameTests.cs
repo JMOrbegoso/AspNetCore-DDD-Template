@@ -1,13 +1,13 @@
-﻿using DDD_Template.Domain.User.Exceptions;
-using DDD_Template.Domain.User.ValueObjects;
+﻿using DDD_Template.Domain.Users.Exceptions;
+using DDD_Template.Domain.Users.ValueObjects;
 using DDD_Template.TestHelpers;
 using FluentAssertions;
 using System;
 using Xunit;
 
-namespace DDD_Template.Domain.UnitTests.User.ValueObjects
+namespace DDD_Template.Domain.UnitTests.UsersTests.ValueObjectsTests
 {
-    public class FirstNameTest
+    public class FirstNameTests
     {
         [Theory]
         [InlineData("")]
@@ -37,10 +37,10 @@ namespace DDD_Template.Domain.UnitTests.User.ValueObjects
         }
 
         [Theory]
-        [InlineData(256)]
-        [InlineData(400)]
+        [InlineData(65)]
+        [InlineData(70)]
+        [InlineData(100)]
         [InlineData(1000)]
-        [InlineData(10000)]
         public void Expected_throw_FirstNameIsTooLongException(int length)
         {
             // Arrange
@@ -53,11 +53,15 @@ namespace DDD_Template.Domain.UnitTests.User.ValueObjects
             act.Should().Throw<FirstNameIsTooLongException>();
         }
 
-        [Fact]
-        public void Expected_Create_Valid_FirstName()
+        [Theory]
+        [InlineData(1)]
+        [InlineData(10)]
+        [InlineData(30)]
+        [InlineData(64)]
+        public void Expected_Create_Valid_FirstName(int length)
         {
             // Arrange
-            var firstNameString = "John";
+            var firstNameString = StringHelpers.RandomStringGenerator(length);
 
             // Act
             var firstName = FirstName.Create(firstNameString);
@@ -71,11 +75,10 @@ namespace DDD_Template.Domain.UnitTests.User.ValueObjects
         {
             // Arrange
             var originalFirstNameString = "John";
-            var otherFirstNameString = "John";
 
             // Act
             var originalFirstName = FirstName.Create(originalFirstNameString);
-            var otherFirstName = FirstName.Create(otherFirstNameString);
+            var otherFirstName = FirstName.Create(originalFirstNameString);
 
             // Assert
             originalFirstName.Equals(otherFirstName).Should().BeTrue();
@@ -86,11 +89,10 @@ namespace DDD_Template.Domain.UnitTests.User.ValueObjects
         {
             // Arrange
             var originalFirstNameString = "John";
-            var otherFirstNameString = "John";
 
             // Act
             var originalFirstName = FirstName.Create(originalFirstNameString);
-            var otherFirstName = FirstName.Create(otherFirstNameString);
+            var otherFirstName = FirstName.Create(originalFirstNameString);
 
             // Assert
             (originalFirstName == otherFirstName).Should().BeTrue();
