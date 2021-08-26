@@ -1,4 +1,4 @@
-﻿using DDD_Template.Domain.Base;
+﻿using DDD_Template.Domain.Base.DomainEvents;
 using System;
 
 namespace DDD_Template.Domain.Users.DomainEvents

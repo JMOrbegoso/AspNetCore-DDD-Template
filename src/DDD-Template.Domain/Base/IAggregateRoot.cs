@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DDD_Template.Domain.Base.DomainEvents;
+using System.Collections.Generic;
 
 namespace DDD_Template.Domain.Base
 {
