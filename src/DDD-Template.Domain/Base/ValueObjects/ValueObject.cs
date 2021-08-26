@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DDD_Template.Domain.Base
+namespace DDD_Template.Domain.Base.ValueObjects
 {
-    public abstract record ValueObject<T> where T : IEquatable<T>
+    public abstract record ValueObject<T> : IValueObject<T> where T : IEquatable<T>
     {
         public T Value { get; }
 

@@ -1,4 +1,5 @@
-﻿using DDD_Template.Domain.Users.Entities;
+﻿using DDD_Template.Domain.Users.DomainEvents;
+using DDD_Template.Domain.Users.Entities;
 using DDD_Template.Domain.Users.Exceptions;
 using DDD_Template.Domain.Users.ValueObjects;
 using FluentAssertions;
@@ -26,6 +27,7 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
             user.FirstName.Should().Be(firstName);
             user.LastName.Should().Be(lastName);
             user.BirthDate.Should().Be(birthDate);
+            user.DomainEvents.Should().ContainItemsAssignableTo<UserCreatedDomainEvent>().And.ContainSingle();
         }
 
         [Fact]
@@ -44,6 +46,7 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
             user.FirstName.Should().Be(firstName);
             user.LastName.Should().Be(lastName);
             user.BirthDate.Should().Be(birthDate);
+            user.DomainEvents.Should().ContainItemsAssignableTo<UserCreatedDomainEvent>().And.ContainSingle();
         }
 
         [Fact]

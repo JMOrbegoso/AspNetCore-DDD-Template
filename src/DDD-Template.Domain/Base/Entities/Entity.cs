@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DDD_Template.Domain.Base
+namespace DDD_Template.Domain.Base.Entities
 {
-    public abstract class Entity
+    public abstract class Entity : IEntity
     {
         public Guid Id { get; }
 
