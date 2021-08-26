@@ -1,4 +1,5 @@
 ﻿using DDD_Template.Domain.Users.Entities;
+using DDD_Template.Domain.Users.Exceptions;
 using DDD_Template.Domain.Users.ValueObjects;
 using FluentAssertions;
 using System;
@@ -46,6 +47,23 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
         }
 
         [Fact]
+        public void Expected_Throw_InvalidOperationException_Update_FirstName()
+        {
+            // Arrange
+            var id = Guid.NewGuid();
+            var firstName = FirstName.Create("John");
+            var lastName = LastName.Create("Doe");
+            var birthDate = BirthDate.Create(2000, 10, 10);
+
+            // Act
+            var user = User.Create(id, firstName, lastName, birthDate);
+            var act = new Action(() => user.UpdateFirstName(firstName));
+
+            // Assert
+            act.Should().Throw<UpdateFirstNameException>();
+        }
+
+        [Fact]
         public void Expected_Update_FirstName()
         {
             // Arrange
@@ -67,6 +85,23 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
         }
 
         [Fact]
+        public void Expected_Throw_InvalidOperationException_Update_LastName()
+        {
+            // Arrange
+            var id = Guid.NewGuid();
+            var firstName = FirstName.Create("John");
+            var lastName = LastName.Create("Doe");
+            var birthDate = BirthDate.Create(2000, 10, 10);
+
+            // Act
+            var user = User.Create(id, firstName, lastName, birthDate);
+            var act = new Action(() => user.UpdateLastName(lastName));
+
+            // Assert
+            act.Should().Throw<UpdateLastNameException>();
+        }
+
+        [Fact]
         public void Expected_Update_LastName()
         {
             // Arrange
@@ -85,6 +120,23 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
             user.FirstName.Should().Be(firstName);
             user.LastName.Should().Be(newLastName);
             user.BirthDate.Should().Be(birthDate);
+        }
+
+        [Fact]
+        public void Expected_Throw_InvalidOperationException_Update_BirthDate()
+        {
+            // Arrange
+            var id = Guid.NewGuid();
+            var firstName = FirstName.Create("John");
+            var lastName = LastName.Create("Doe");
+            var birthDate = BirthDate.Create(2000, 10, 10);
+
+            // Act
+            var user = User.Create(id, firstName, lastName, birthDate);
+            var act = new Action(() => user.UpdateBirthDate(birthDate));
+
+            // Assert
+            act.Should().Throw<UpdateBirthDateException>();
         }
 
         [Fact]
