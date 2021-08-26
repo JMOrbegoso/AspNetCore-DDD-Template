@@ -1,4 +1,5 @@
 ﻿using DDD_Template.Domain.Base;
+using DDD_Template.Domain.Users.Exceptions;
 using DDD_Template.Domain.Users.ValueObjects;
 using System;
 
@@ -30,16 +31,25 @@ namespace DDD_Template.Domain.Users.Entities
 
         public void UpdateFirstName(FirstName firstName)
         {
+            if (this.FirstName.Equals(firstName))
+                throw new UpdateFirstNameException();
+
             this.FirstName = firstName;
         }
 
         public void UpdateLastName(LastName lastName)
         {
+            if (this.LastName.Equals(lastName))
+                throw new UpdateLastNameException();
+
             this.LastName = lastName;
         }
 
         public void UpdateBirthDate(BirthDate birthDate)
         {
+            if (this.BirthDate.Equals(birthDate))
+                throw new UpdateBirthDateException();
+
             this.BirthDate = birthDate;
         }
     }
