@@ -1,4 +1,5 @@
 ﻿using DDD_Template.Domain.Base;
+using DDD_Template.Domain.Users.Exceptions;
 using DDD_Template.Domain.Users.ValueObjects;
 using System;
 
@@ -6,20 +7,17 @@ namespace DDD_Template.Domain.Users.Entities
 {
     public sealed class User : Entity
     {
-        private FirstName _firstName { get; set; }
-        public string GetFirstName() => this._firstName.Value;
+        public FirstName FirstName { get; private set; }
 
-        private LastName _lastName { get; set; }
-        public string GetLastName() => this._lastName.Value;
+        public LastName LastName { get; private set; }
 
-        private BirthDate _birthDate { get; set; }
-        public DateTime GetBirthDate() => this._birthDate.Value;
+        public BirthDate BirthDate { get; private set; }
 
         private User(Guid id, FirstName firstName, LastName lastName, BirthDate birthDate) : base(id)
         {
-            this._firstName = firstName;
-            this._lastName = lastName;
-            this._birthDate = birthDate;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.BirthDate = birthDate;
         }
 
         public static User Create(FirstName firstName, LastName lastName, BirthDate birthDate)
@@ -33,17 +31,26 @@ namespace DDD_Template.Domain.Users.Entities
 
         public void UpdateFirstName(FirstName firstName)
         {
-            this._firstName = firstName;
+            if (this.FirstName.Equals(firstName))
+                throw new UpdateFirstNameException();
+
+            this.FirstName = firstName;
         }
 
         public void UpdateLastName(LastName lastName)
         {
-            this._lastName = lastName;
+            if (this.LastName.Equals(lastName))
+                throw new UpdateLastNameException();
+
+            this.LastName = lastName;
         }
 
         public void UpdateBirthDate(BirthDate birthDate)
         {
-            this._birthDate = birthDate;
+            if (this.BirthDate.Equals(birthDate))
+                throw new UpdateBirthDateException();
+
+            this.BirthDate = birthDate;
         }
     }
 }

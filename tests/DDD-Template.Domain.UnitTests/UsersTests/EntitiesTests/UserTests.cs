@@ -1,4 +1,5 @@
 ﻿using DDD_Template.Domain.Users.Entities;
+using DDD_Template.Domain.Users.Exceptions;
 using DDD_Template.Domain.Users.ValueObjects;
 using FluentAssertions;
 using System;
@@ -22,9 +23,9 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
 
             // Assert
             user.Id.Should().Be(id);
-            user.GetFirstName().Should().Be(firstName.Value);
-            user.GetLastName().Should().Be(lastName.Value);
-            user.GetBirthDate().Should().Be(birthDate.Value);
+            user.FirstName.Should().Be(firstName);
+            user.LastName.Should().Be(lastName);
+            user.BirthDate.Should().Be(birthDate);
         }
 
         [Fact]
@@ -40,9 +41,26 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
 
             // Assert
             user.Id.Should().NotBeEmpty();
-            user.GetFirstName().Should().Be(firstName.Value);
-            user.GetLastName().Should().Be(lastName.Value);
-            user.GetBirthDate().Should().Be(birthDate.Value);
+            user.FirstName.Should().Be(firstName);
+            user.LastName.Should().Be(lastName);
+            user.BirthDate.Should().Be(birthDate);
+        }
+
+        [Fact]
+        public void Expected_Throw_InvalidOperationException_Update_FirstName()
+        {
+            // Arrange
+            var id = Guid.NewGuid();
+            var firstName = FirstName.Create("John");
+            var lastName = LastName.Create("Doe");
+            var birthDate = BirthDate.Create(2000, 10, 10);
+
+            // Act
+            var user = User.Create(id, firstName, lastName, birthDate);
+            var act = new Action(() => user.UpdateFirstName(firstName));
+
+            // Assert
+            act.Should().Throw<UpdateFirstNameException>();
         }
 
         [Fact]
@@ -61,9 +79,26 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
 
             // Assert
             user.Id.Should().Be(id);
-            user.GetFirstName().Should().Be(newFirstName.Value);
-            user.GetLastName().Should().Be(lastName.Value);
-            user.GetBirthDate().Should().Be(birthDate.Value);
+            user.FirstName.Should().Be(newFirstName);
+            user.LastName.Should().Be(lastName);
+            user.BirthDate.Should().Be(birthDate);
+        }
+
+        [Fact]
+        public void Expected_Throw_InvalidOperationException_Update_LastName()
+        {
+            // Arrange
+            var id = Guid.NewGuid();
+            var firstName = FirstName.Create("John");
+            var lastName = LastName.Create("Doe");
+            var birthDate = BirthDate.Create(2000, 10, 10);
+
+            // Act
+            var user = User.Create(id, firstName, lastName, birthDate);
+            var act = new Action(() => user.UpdateLastName(lastName));
+
+            // Assert
+            act.Should().Throw<UpdateLastNameException>();
         }
 
         [Fact]
@@ -82,9 +117,26 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
 
             // Assert
             user.Id.Should().Be(id);
-            user.GetFirstName().Should().Be(firstName.Value);
-            user.GetLastName().Should().Be(newLastName.Value);
-            user.GetBirthDate().Should().Be(birthDate.Value);
+            user.FirstName.Should().Be(firstName);
+            user.LastName.Should().Be(newLastName);
+            user.BirthDate.Should().Be(birthDate);
+        }
+
+        [Fact]
+        public void Expected_Throw_InvalidOperationException_Update_BirthDate()
+        {
+            // Arrange
+            var id = Guid.NewGuid();
+            var firstName = FirstName.Create("John");
+            var lastName = LastName.Create("Doe");
+            var birthDate = BirthDate.Create(2000, 10, 10);
+
+            // Act
+            var user = User.Create(id, firstName, lastName, birthDate);
+            var act = new Action(() => user.UpdateBirthDate(birthDate));
+
+            // Assert
+            act.Should().Throw<UpdateBirthDateException>();
         }
 
         [Fact]
@@ -103,9 +155,9 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
 
             // Assert
             user.Id.Should().Be(id);
-            user.GetFirstName().Should().Be(firstName.Value);
-            user.GetLastName().Should().Be(lastName.Value);
-            user.GetBirthDate().Should().Be(newBirthDate.Value);
+            user.FirstName.Should().Be(firstName);
+            user.LastName.Should().Be(lastName);
+            user.BirthDate.Should().Be(newBirthDate);
         }
 
         [Fact]
