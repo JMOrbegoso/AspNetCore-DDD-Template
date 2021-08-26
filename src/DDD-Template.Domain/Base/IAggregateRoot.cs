@@ -4,7 +4,7 @@ namespace DDD_Template.Domain.Base
 {
     public interface IAggregateRoot
     {
-        IReadOnlyList<IDomainEvent> GetDomainEvents();
+        IReadOnlyList<IDomainEvent> DomainEvents { get; }
 
         void AddDomainEvent(IDomainEvent domainEvent);
 

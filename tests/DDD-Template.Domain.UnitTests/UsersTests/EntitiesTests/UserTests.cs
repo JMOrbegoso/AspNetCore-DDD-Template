@@ -27,7 +27,7 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
             user.FirstName.Should().Be(firstName);
             user.LastName.Should().Be(lastName);
             user.BirthDate.Should().Be(birthDate);
-            user.GetDomainEvents().Should().ContainItemsAssignableTo<UserCreatedDomainEvent>().And.ContainSingle();
+            user.DomainEvents.Should().ContainItemsAssignableTo<UserCreatedDomainEvent>().And.ContainSingle();
         }
 
         [Fact]
@@ -46,7 +46,7 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
             user.FirstName.Should().Be(firstName);
             user.LastName.Should().Be(lastName);
             user.BirthDate.Should().Be(birthDate);
-            user.GetDomainEvents().Should().ContainItemsAssignableTo<UserCreatedDomainEvent>().And.ContainSingle();
+            user.DomainEvents.Should().ContainItemsAssignableTo<UserCreatedDomainEvent>().And.ContainSingle();
         }
 
         [Fact]
