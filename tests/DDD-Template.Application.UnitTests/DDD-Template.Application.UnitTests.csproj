@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\DDD-Template.Application\DDD-Template.Application.csproj" />
+    <ProjectReference Include="..\DDD-Template.TestHelpers\DDD-Template.TestHelpers.csproj" />
   </ItemGroup>
 
 </Project>
