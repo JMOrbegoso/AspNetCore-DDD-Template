@@ -5,7 +5,7 @@ using System;
 
 namespace DDD_Template.Domain.Users.Entities
 {
-    public sealed class User : Entity
+    public sealed class User : AggregateRoot
     {
         public FirstName FirstName { get; private set; }
 
