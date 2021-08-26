@@ -1,4 +1,4 @@
-﻿using DDD_Template.Domain.Base;
+﻿using DDD_Template.Domain.Base.Entities;
 using DDD_Template.Domain.Users.DomainEvents;
 using DDD_Template.Domain.Users.Exceptions;
 using DDD_Template.Domain.Users.ValueObjects;
