@@ -1,4 +1,5 @@
 ﻿using DDD_Template.Domain.Base;
+using DDD_Template.Domain.Users.DomainEvents;
 using DDD_Template.Domain.Users.Exceptions;
 using DDD_Template.Domain.Users.ValueObjects;
 using System;
@@ -26,7 +27,11 @@ namespace DDD_Template.Domain.Users.Entities
         }
         public static User Create(Guid id, FirstName firstName, LastName lastName, BirthDate birthDate)
         {
-            return new User(id, firstName, lastName, birthDate);
+            var user = new User(id, firstName, lastName, birthDate);
+
+            user.AddDomainEvent(new UserCreatedDomainEvent(user.Id));
+
+            return user;
         }
 
         public void UpdateFirstName(FirstName firstName)
