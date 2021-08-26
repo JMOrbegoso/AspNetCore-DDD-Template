@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DDD_Template.Domain.Base.Repositories
 {
-    public interface IRepository<TEntity> where TEntity : Entity
+    public interface IRepository<TEntity> where TEntity : IEntity
     {
         Task<bool> Exist(Guid id);
 
