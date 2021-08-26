@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace DDD_Template.Domain.Base
+namespace DDD_Template.Domain.Base.Repositories
 {
     public interface IUnitOfWork : IDisposable
     {

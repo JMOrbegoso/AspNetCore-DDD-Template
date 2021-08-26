@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace DDD_Template.Domain.Base
+namespace DDD_Template.Domain.Base.Repositories
 {
     public interface IRepository<TEntity> where TEntity : Entity
     {
