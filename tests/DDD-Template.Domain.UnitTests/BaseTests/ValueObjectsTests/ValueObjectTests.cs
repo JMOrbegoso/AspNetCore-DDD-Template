@@ -46,7 +46,7 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
         }
 
         [Fact]
-        public void Expected_NameValueObject_be_Equal()
+        public void Expected_NameValueObjects_be_Equal()
         {
             // Arrange
             var name = "John";
@@ -61,7 +61,7 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
         }
 
         [Fact]
-        public void Expected_NameValueObject_be_Equal_With_Operator()
+        public void Expected_NameValueObjects_be_Equal_With_Operator()
         {
             // Arrange
             var name = "John";
@@ -76,7 +76,7 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
         }
 
         [Fact]
-        public void Expected_NameValueObject_be_Different()
+        public void Expected_NameValueObjects_be_Different()
         {
             // Arrange
             var name1 = "John";
@@ -92,7 +92,7 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
         }
 
         [Fact]
-        public void Expected_NameValueObject_be_Different_With_Operator()
+        public void Expected_NameValueObjects_be_Different_With_Operator()
         {
             // Arrange
             var name1 = "John";
