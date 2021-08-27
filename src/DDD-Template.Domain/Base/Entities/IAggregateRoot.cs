@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DDD_Template.Domain.Base.Entities
 {
-    public interface IAggregateRoot
+    public interface IAggregateRoot : IEntity
     {
         IReadOnlyList<IDomainEvent> DomainEvents { get; }
 
