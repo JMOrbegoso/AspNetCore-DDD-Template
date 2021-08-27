@@ -27,5 +27,33 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.DomainEventsTests
             domainEvent.Id.Should().NotBeEmpty();
             domainEvent.CreatedAtUtc.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(10));
         }
+
+        [Fact]
+        public void Expected_CreatedCustomerDomainEvents_be_Different()
+        {
+            // Arrange
+
+            // Act
+            var domainEvent1 = new CreatedCustomerDomainEvent();
+            var domainEvent2 = new CreatedCustomerDomainEvent();
+            var equality = domainEvent1.Equals(domainEvent2);
+
+            // Assert
+            equality.Should().BeFalse();
+        }
+
+        [Fact]
+        public void Expected_CreatedCustomerDomainEvents_be_Different_With_Operator()
+        {
+            // Arrange
+
+            // Act
+            var domainEvent1 = new CreatedCustomerDomainEvent();
+            var domainEvent2 = new CreatedCustomerDomainEvent();
+            var equality = domainEvent1 != domainEvent2;
+
+            // Assert
+            equality.Should().BeTrue();
+        }
     }
 }
