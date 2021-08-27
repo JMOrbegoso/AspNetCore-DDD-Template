@@ -32,6 +32,7 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.DomainEventsTests
 
             // Assert
             domainEvent.Should().BeAssignableTo(typeof(IDomainEvent));
+            domainEvent.Should().BeOfType(typeof(CreatedCustomerDomainEvent));
             domainEvent.Id.Should().Be(id);
             domainEvent.CreatedAtUtc.Should().Be(createdAtUtc);
         }
