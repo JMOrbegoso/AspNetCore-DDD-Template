@@ -28,6 +28,7 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
 
             // Assert
             stringValueObject.Should().BeAssignableTo(typeof(IValueObject<string>));
+            stringValueObject.Should().BeOfType(typeof(StringValueObject));
             stringValueObject.Value.Should().Be(stringValue);
         }
 
