@@ -28,6 +28,7 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.EntitiesTests
 
             // Assert
             dummyEntity.Should().BeAssignableTo(typeof(IEntity));
+            dummyEntity.Should().BeOfType(typeof(DummyEntity));
             dummyEntity.Id.Should().Be(id);
         }
     }
