@@ -18,17 +18,17 @@ namespace DDD_Template.Infrastructure.Repositories
             this.Context = context;
         }
 
-        public async Task<IEnumerable<TEntity>> Get()
+        public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             return await this.Context.Set<TEntity>().ToListAsync();
         }
 
-        public async Task<TEntity> Get(Guid id)
+        public async Task<TEntity> GetByIdAsync(Guid id)
         {
             return await this.Context.Set<TEntity>().FindAsync(id);
         }
 
-        public async Task<IEnumerable<TEntity>> FindAll(Expression<Func<TEntity, bool>> predicate)
+        public async Task<IEnumerable<TEntity>> FindAllAsync(Expression<Func<TEntity, bool>> predicate)
         {
             return await this.Context.Set<TEntity>().Where(predicate).ToListAsync();
         }
