@@ -18,11 +18,6 @@ namespace DDD_Template.Infrastructure.Repositories
             this.Context = context;
         }
 
-        public async Task<bool> Exist(Guid id)
-        {
-            return await this.Context.Set<TEntity>().FindAsync(id) != null;
-        }
-
         public async Task<IEnumerable<TEntity>> Get()
         {
             return await this.Context.Set<TEntity>().ToListAsync();
