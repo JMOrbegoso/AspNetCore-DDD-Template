@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\DDD-Template.Infrastructure\DDD-Template.Infrastructure.csproj" />
+    <ProjectReference Include="..\DDD-Template.TestHelpers\DDD-Template.TestHelpers.csproj" />
   </ItemGroup>
 
 </Project>
