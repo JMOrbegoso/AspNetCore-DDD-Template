@@ -6,6 +6,7 @@ namespace DDD_Template.Domain.Base.ValueObjects
     {
         public T Value { get; }
 
+        protected ValueObject() { }
         protected ValueObject(T value)
         {
             this.Validate(value);
