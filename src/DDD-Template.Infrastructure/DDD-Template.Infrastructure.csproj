@@ -5,4 +5,8 @@
     <RootNamespace>DDD_Template.Infrastructure</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DDD-Template.Application\DDD-Template.Application.csproj" />
+  </ItemGroup>
+
 </Project>
