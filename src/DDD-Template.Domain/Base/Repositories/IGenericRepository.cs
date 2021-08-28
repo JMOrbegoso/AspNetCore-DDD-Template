@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DDD_Template.Domain.Base.Repositories
 {
-    public interface IRepository<TEntity> where TEntity : IEntity
+    public interface IGenericRepository<TEntity> where TEntity : IEntity
     {
         Task<IEnumerable<TEntity>> GetAllAsync();
 

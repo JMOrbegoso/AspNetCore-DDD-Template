@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DDD_Template.Infrastructure.Repositories
 {
-    public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class, IEntity
     {
         protected readonly DbContext Context;
 
