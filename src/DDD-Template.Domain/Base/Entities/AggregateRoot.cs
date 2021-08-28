@@ -9,6 +9,7 @@ namespace DDD_Template.Domain.Base.Entities
         private readonly List<IDomainEvent> _domainEvents = new List<IDomainEvent>();
         public IReadOnlyList<IDomainEvent> DomainEvents { get => this._domainEvents.AsReadOnly(); }
 
+        protected AggregateRoot() { }
         protected AggregateRoot(Guid id) : base(id) { }
 
         public void AddDomainEvent(IDomainEvent domainEvent)
