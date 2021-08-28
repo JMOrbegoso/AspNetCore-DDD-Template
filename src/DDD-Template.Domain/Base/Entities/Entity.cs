@@ -6,6 +6,7 @@ namespace DDD_Template.Domain.Base.Entities
     {
         public Guid Id { get; }
 
+        protected Entity() { }
         protected Entity(Guid id)
         {
             this.Id = id;
