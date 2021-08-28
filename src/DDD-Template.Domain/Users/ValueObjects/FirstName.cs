@@ -7,6 +7,7 @@ namespace DDD_Template.Domain.Users.ValueObjects
     {
         public const int MaxLength = 64;
 
+        private FirstName() { }
         private FirstName(string value) : base(value) { }
 
         public static FirstName Create(string value)
