@@ -12,7 +12,9 @@ namespace DDD_Template.Infrastructure.Persistence.EntityTypeConfigurations
             builder.ToTable(nameof(User), nameof(User));
 
             builder.HasKey(user => user.Id);
-            builder.Property(user => user.Id).ValueGeneratedOnAdd().IsRequired();
+            builder.Property(user => user.Id)
+                   .ValueGeneratedOnAdd()
+                   .IsRequired();
 
             builder.Ignore(user => user.DomainEvents);
 
