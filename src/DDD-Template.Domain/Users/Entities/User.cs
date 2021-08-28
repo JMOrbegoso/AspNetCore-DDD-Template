@@ -14,6 +14,7 @@ namespace DDD_Template.Domain.Users.Entities
 
         public BirthDate BirthDate { get; private set; }
 
+        private User() { }
         private User(Guid id, FirstName firstName, LastName lastName, BirthDate birthDate) : base(id)
         {
             this.FirstName = firstName;
