@@ -18,27 +18,27 @@ namespace DDD_Template.Infrastructure.Repositories
             this.Context = context;
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync()
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             return await this.Context.Set<TEntity>().ToListAsync();
         }
 
-        public async Task<TEntity> GetByIdAsync(Guid id)
+        public virtual async Task<TEntity> GetByIdAsync(Guid id)
         {
             return await this.Context.Set<TEntity>().FindAsync(id);
         }
 
-        public async Task<IEnumerable<TEntity>> FindAllAsync(Expression<Func<TEntity, bool>> predicate)
+        public virtual async Task<IEnumerable<TEntity>> FindAllAsync(Expression<Func<TEntity, bool>> predicate)
         {
             return await this.Context.Set<TEntity>().Where(predicate).ToListAsync();
         }
 
-        public void Add(TEntity entity)
+        public virtual void Add(TEntity entity)
         {
             this.Context.Set<TEntity>().Add(entity);
         }
 
-        public void Remove(TEntity entity)
+        public virtual void Remove(TEntity entity)
         {
             this.Context.Set<TEntity>().Remove(entity);
         }
