@@ -7,6 +7,7 @@ namespace DDD_Template.Domain.Users.ValueObjects
     {
         public const string OldestDateString = "1920-01-01";
 
+        private BirthDate() { }
         private BirthDate(DateTime birthDate) : base(birthDate) { }
         private BirthDate(int year, int month, int day) : base(new DateTime(year, month, day)) { }
         private BirthDate(string birthDateString) : base(DateTime.Parse(birthDateString)) { }
