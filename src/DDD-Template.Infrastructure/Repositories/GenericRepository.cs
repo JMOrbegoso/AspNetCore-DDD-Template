@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace DDD_Template.Infrastructure.Repositories
 {
@@ -18,19 +17,19 @@ namespace DDD_Template.Infrastructure.Repositories
             this.Context = context;
         }
 
-        public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
+        public virtual IEnumerable<TEntity> GetAll()
         {
-            return await this.Context.Set<TEntity>().ToListAsync();
+            return this.Context.Set<TEntity>().ToList();
         }
 
-        public virtual async Task<TEntity> GetByIdAsync(Guid id)
+        public virtual TEntity GetById(Guid id)
         {
-            return await this.Context.Set<TEntity>().FindAsync(id);
+            return this.Context.Set<TEntity>().Find(id);
         }
 
-        public virtual async Task<IEnumerable<TEntity>> FindAllAsync(Expression<Func<TEntity, bool>> predicate)
+        public virtual IEnumerable<TEntity> FindAll(Expression<Func<TEntity, bool>> predicate)
         {
-            return await this.Context.Set<TEntity>().Where(predicate).ToListAsync();
+            return this.Context.Set<TEntity>().Where(predicate).ToList();
         }
 
         public virtual void Add(TEntity entity)
