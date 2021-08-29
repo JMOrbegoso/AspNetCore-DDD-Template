@@ -61,7 +61,7 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
         }
 
         [Fact]
-        public void Expected_NameValueObjects_be_Equal_With_Operator()
+        public void Expected_NameValueObjects_be_Equal_with_Operator()
         {
             // Arrange
             var name = "John";
@@ -70,6 +70,34 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
             var nameValueObject1 = new NameValueObject(name);
             var nameValueObject2 = new NameValueObject(name);
             var equality = nameValueObject1 == nameValueObject2;
+
+            // Assert
+            equality.Should().BeTrue();
+        }
+
+        [Fact]
+        public void Expected_NameValueObject_be_Equal_by_Value()
+        {
+            // Arrange
+            var name = "John";
+
+            // Act
+            var nameValueObject = new NameValueObject(name);
+            var equality = nameValueObject.Equals(name);
+
+            // Assert
+            equality.Should().BeTrue();
+        }
+
+        [Fact]
+        public void Expected_NameValueObject_be_Equal_by_Value_with_Operator()
+        {
+            // Arrange
+            var name = "John";
+
+            // Act
+            var nameValueObject = new NameValueObject(name);
+            var equality = nameValueObject == name;
 
             // Assert
             equality.Should().BeTrue();
@@ -92,7 +120,7 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
         }
 
         [Fact]
-        public void Expected_NameValueObjects_be_Different_With_Operator()
+        public void Expected_NameValueObjects_be_Different_with_Operator()
         {
             // Arrange
             var name1 = "John";
@@ -105,6 +133,36 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
 
             // Assert
             equality.Should().BeTrue();
+        }
+
+        [Fact]
+        public void Expected_NameValueObject_be_Different_by_Value()
+        {
+            // Arrange
+            var name1 = "John";
+            var name2 = "Johny";
+
+            // Act
+            var nameValueObject = new NameValueObject(name1);
+            var equality = nameValueObject.Equals(name2);
+
+            // Assert
+            equality.Should().BeFalse();
+        }
+
+        [Fact]
+        public void Expected_NameValueObject_be_Different_by_Value_with_Operator()
+        {
+            // Arrange
+            var name1 = "John";
+            var name2 = "Johny";
+
+            // Act
+            var nameValueObject = new NameValueObject(name1);
+            var equality = nameValueObject == name2;
+
+            // Assert
+            equality.Should().BeFalse();
         }
     }
 }
