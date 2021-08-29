@@ -159,10 +159,10 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
 
             // Act
             var nameValueObject = new NameValueObject(name1);
-            var equality = nameValueObject == name2;
+            var equality = nameValueObject != name2;
 
             // Assert
-            equality.Should().BeFalse();
+            equality.Should().BeTrue();
         }
     }
 }
