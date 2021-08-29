@@ -8,6 +8,6 @@ namespace DDD_Template.Domain.Base.Repositories
     {
         IUsersRepository UsersRepository { get; }
 
-        Task CommitAsync();
+        Task<int> CommitChangesAsync();
     }
 }
