@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace DDD_Template.Domain.Base.Repositories
 {
-    public interface IRepository<TEntity> where TEntity : IEntity
+    public interface IGenericRepository<TEntity> where TEntity : IEntity
     {
-        Task<bool> Exist(Guid id);
+        Task<IEnumerable<TEntity>> GetAllAsync();
 
-        Task<IEnumerable<TEntity>> Get();
+        Task<TEntity> GetByIdAsync(Guid id);
 
-        Task<TEntity> Get(Guid id);
-
-        Task<IEnumerable<TEntity>> FindAll(Expression<Func<TEntity, bool>> predicate);
+        Task<IEnumerable<TEntity>> FindAllAsync(Expression<Func<TEntity, bool>> predicate);
 
         void Add(TEntity entity);
 
