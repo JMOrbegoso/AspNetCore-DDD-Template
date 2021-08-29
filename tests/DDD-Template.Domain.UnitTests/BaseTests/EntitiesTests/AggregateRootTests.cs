@@ -27,7 +27,7 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.EntitiesTests
         }
 
         [Fact]
-        public void Expected_Create_DummyEntity()
+        public void Expected_Create_DummyAggregateRoot()
         {
             // Arrange
             var id = Guid.NewGuid();
@@ -105,7 +105,7 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.EntitiesTests
         }
 
         [Fact]
-        public void Expected_Add_DomainEvent_In_DummyEntity()
+        public void Expected_Add_DomainEvent_In_DummyAggregateRoot()
         {
             // Arrange
             var id = Guid.NewGuid();
@@ -125,7 +125,7 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.EntitiesTests
         }
 
         [Fact]
-        public void Expected_Clear_DomainEvents_In_DummyEntity()
+        public void Expected_Clear_DomainEvents_In_DummyAggregateRoot()
         {
             // Arrange
             var id = Guid.NewGuid();
