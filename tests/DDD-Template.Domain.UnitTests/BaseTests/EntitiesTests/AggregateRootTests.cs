@@ -144,5 +144,34 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.EntitiesTests
             dummyAggregateRoot.Id.Should().Be(id);
             dummyAggregateRoot.DomainEvents.Should().BeEmpty();
         }
+
+        [Fact]
+        public void Expected_DummyAggregateRoot_DomainEvents_reflects_changes_in_private_DomainEvents_list()
+        {
+            // Arrange
+            var id = Guid.NewGuid();
+
+            var domainEventId1 = Guid.NewGuid();
+            var createdAtUtc1 = DateTime.UtcNow;
+
+            var domainEventId2 = Guid.NewGuid();
+            var createdAtUtc2 = DateTime.UtcNow;
+
+            // Act
+            var domainEvent1 = new CreatedDummyDomainEvent(domainEventId1, createdAtUtc1);
+            var domainEvent2 = new CreatedDummyDomainEvent(domainEventId2, createdAtUtc2);
+
+            var dummyAggregateRoot = new DummyAggregateRoot(id);
+
+            // Assert
+            dummyAggregateRoot.AddDomainEvent(domainEvent1);
+            dummyAggregateRoot.DomainEvents.Count.Should().Be(1);
+
+            dummyAggregateRoot.AddDomainEvent(domainEvent2);
+            dummyAggregateRoot.DomainEvents.Count.Should().Be(2);
+
+            dummyAggregateRoot.ClearDomainEvents();
+            dummyAggregateRoot.DomainEvents.Count.Should().Be(0);
+        }
     }
 }
