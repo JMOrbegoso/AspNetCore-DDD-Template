@@ -25,11 +25,6 @@ namespace DDD_Template.Domain.Users.ValueObjects
 
         protected override void Validate(DateTime value) { }
 
-        public override string ToString()
-        {
-            return this.Value.ToString("yyyy-mm-dd");
-        }
-
         public bool IsOver18YearsOld()
         {
             var currentAge = DateTime.Today.Year - this.Value.Year;
@@ -38,6 +33,11 @@ namespace DDD_Template.Domain.Users.ValueObjects
                 currentAge--;
 
             return currentAge >= 18;
+        }
+
+        public override string ToString()
+        {
+            return this.Value.ToString("yyyy-MM-dd");
         }
     }
 }
