@@ -203,5 +203,24 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.ValueObjectsTests
             // Assert
             birthDate.IsOver18YearsOld().Should().BeFalse();
         }
+
+        [Theory]
+        [InlineData("1975-01-01")]
+        [InlineData("2000-01-01")]
+        [InlineData("2005-01-01")]
+        [InlineData("2011-01-01")]
+        [InlineData("2020-01-01")]
+        [InlineData("2025-01-01")]
+        [InlineData("2036-01-01")]
+        public void Expected_BirthDate_To_String(string birthDateString)
+        {
+            // Arrange
+
+            // Act
+            var birthDate = BirthDate.Create(birthDateString);
+
+            // Assert
+            birthDate.ToString().Should().Be(birthDateString);
+        }
     }
 }
