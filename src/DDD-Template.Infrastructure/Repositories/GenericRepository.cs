@@ -2,45 +2,44 @@
 using DDD_Template.Domain.Base.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace DDD_Template.Infrastructure.Repositories
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class, IEntity
+    public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class, IEntity
     {
-        protected readonly DbContext Context;
+        protected DbSet<TEntity> DbSet { get; }
 
         protected GenericRepository(DbContext context)
         {
-            this.Context = context;
+            this.DbSet = context.Set<TEntity>();
         }
 
-        public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
+        public virtual IImmutableList<TEntity> GetAll()
         {
-            return await this.Context.Set<TEntity>().ToListAsync();
+            return this.DbSet.ToImmutableList();
         }
 
-        public virtual async Task<TEntity> GetByIdAsync(Guid id)
+        public virtual TEntity GetById(Guid id)
         {
-            return await this.Context.Set<TEntity>().FindAsync(id);
+            return this.DbSet.Find(id);
         }
 
-        public virtual async Task<IEnumerable<TEntity>> FindAllAsync(Expression<Func<TEntity, bool>> predicate)
+        public virtual IImmutableList<TEntity> FindAll(Expression<Func<TEntity, bool>> predicate)
         {
-            return await this.Context.Set<TEntity>().Where(predicate).ToListAsync();
+            return this.DbSet.Where(predicate).ToImmutableList();
         }
 
         public virtual void Add(TEntity entity)
         {
-            this.Context.Set<TEntity>().Add(entity);
+            this.DbSet.Add(entity);
         }
 
         public virtual void Remove(TEntity entity)
         {
-            this.Context.Set<TEntity>().Remove(entity);
+            this.DbSet.Remove(entity);
         }
     }
 }
