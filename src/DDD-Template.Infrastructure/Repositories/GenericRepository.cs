@@ -2,7 +2,7 @@
 using DDD_Template.Domain.Base.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -17,9 +17,9 @@ namespace DDD_Template.Infrastructure.Repositories
             this.DbSet = context.Set<TEntity>();
         }
 
-        public virtual IEnumerable<TEntity> GetAll()
+        public virtual IImmutableList<TEntity> GetAll()
         {
-            return this.DbSet.ToList();
+            return this.DbSet.ToImmutableList();
         }
 
         public virtual TEntity GetById(Guid id)
@@ -27,9 +27,9 @@ namespace DDD_Template.Infrastructure.Repositories
             return this.DbSet.Find(id);
         }
 
-        public virtual IEnumerable<TEntity> FindAll(Expression<Func<TEntity, bool>> predicate)
+        public virtual IImmutableList<TEntity> FindAll(Expression<Func<TEntity, bool>> predicate)
         {
-            return this.DbSet.Where(predicate).ToList();
+            return this.DbSet.Where(predicate).ToImmutableList();
         }
 
         public virtual void Add(TEntity entity)
