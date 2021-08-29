@@ -54,10 +54,10 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
             // Act
             var nameValueObject1 = new NameValueObject(name);
             var nameValueObject2 = new NameValueObject(name);
-            var equality = nameValueObject1.Equals(nameValueObject2);
+            var result = nameValueObject1.Equals(nameValueObject2);
 
             // Assert
-            equality.Should().BeTrue();
+            result.Should().BeTrue();
         }
 
         [Fact]
@@ -69,10 +69,10 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
             // Act
             var nameValueObject1 = new NameValueObject(name);
             var nameValueObject2 = new NameValueObject(name);
-            var equality = nameValueObject1 == nameValueObject2;
+            var result = nameValueObject1 == nameValueObject2;
 
             // Assert
-            equality.Should().BeTrue();
+            result.Should().BeTrue();
         }
 
         [Fact]
@@ -83,10 +83,10 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
 
             // Act
             var nameValueObject = new NameValueObject(name);
-            var equality = nameValueObject.Equals(name);
+            var result = nameValueObject.Equals(name);
 
             // Assert
-            equality.Should().BeTrue();
+            result.Should().BeTrue();
         }
 
         [Fact]
@@ -97,10 +97,10 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
 
             // Act
             var nameValueObject = new NameValueObject(name);
-            var equality = nameValueObject == name;
+            var result = nameValueObject == name;
 
             // Assert
-            equality.Should().BeTrue();
+            result.Should().BeTrue();
         }
 
         [Fact]
@@ -113,10 +113,10 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
             // Act
             var nameValueObject1 = new NameValueObject(name1);
             var nameValueObject2 = new NameValueObject(name2);
-            var equality = nameValueObject1.Equals(nameValueObject2);
+            var result = nameValueObject1.Equals(nameValueObject2);
 
             // Assert
-            equality.Should().BeFalse();
+            result.Should().BeFalse();
         }
 
         [Fact]
@@ -129,10 +129,10 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
             // Act
             var nameValueObject1 = new NameValueObject(name1);
             var nameValueObject2 = new NameValueObject(name2);
-            var equality = nameValueObject1 != nameValueObject2;
+            var result = nameValueObject1 != nameValueObject2;
 
             // Assert
-            equality.Should().BeTrue();
+            result.Should().BeTrue();
         }
 
         [Fact]
@@ -144,10 +144,10 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
 
             // Act
             var nameValueObject = new NameValueObject(name1);
-            var equality = nameValueObject.Equals(name2);
+            var result = nameValueObject.Equals(name2);
 
             // Assert
-            equality.Should().BeFalse();
+            result.Should().BeFalse();
         }
 
         [Fact]
@@ -159,10 +159,10 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
 
             // Act
             var nameValueObject = new NameValueObject(name1);
-            var equality = nameValueObject != name2;
+            var result = nameValueObject != name2;
 
             // Assert
-            equality.Should().BeTrue();
+            result.Should().BeTrue();
         }
     }
 }
