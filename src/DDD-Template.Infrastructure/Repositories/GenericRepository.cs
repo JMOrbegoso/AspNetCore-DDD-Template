@@ -13,7 +13,7 @@ namespace DDD_Template.Infrastructure.Repositories
     {
         protected readonly DbContext Context;
 
-        public GenericRepository(DbContext context)
+        protected GenericRepository(DbContext context)
         {
             this.Context = context;
         }
