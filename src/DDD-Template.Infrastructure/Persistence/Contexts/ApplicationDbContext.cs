@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DDD_Template.Infrastructure.Persistence.Contexts
 {
-    public class ApplicationDbContext : DbContext
+    public sealed class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
