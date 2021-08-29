@@ -10,36 +10,36 @@ namespace DDD_Template.Infrastructure.Repositories
 {
     public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class, IEntity
     {
-        protected readonly DbContext Context;
+        protected DbSet<TEntity> DbSet { get; }
 
         protected GenericRepository(DbContext context)
         {
-            this.Context = context;
+            this.DbSet = context.Set<TEntity>();
         }
 
         public virtual IEnumerable<TEntity> GetAll()
         {
-            return this.Context.Set<TEntity>().ToList();
+            return this.DbSet.ToList();
         }
 
         public virtual TEntity GetById(Guid id)
         {
-            return this.Context.Set<TEntity>().Find(id);
+            return this.DbSet.Find(id);
         }
 
         public virtual IEnumerable<TEntity> FindAll(Expression<Func<TEntity, bool>> predicate)
         {
-            return this.Context.Set<TEntity>().Where(predicate).ToList();
+            return this.DbSet.Where(predicate).ToList();
         }
 
         public virtual void Add(TEntity entity)
         {
-            this.Context.Set<TEntity>().Add(entity);
+            this.DbSet.Add(entity);
         }
 
         public virtual void Remove(TEntity entity)
         {
-            this.Context.Set<TEntity>().Remove(entity);
+            this.DbSet.Remove(entity);
         }
     }
 }
