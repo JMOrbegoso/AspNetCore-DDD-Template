@@ -7,20 +7,17 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.ValueObjectsTests
 {
     public class BirthDateTests
     {
-        [Theory]
-        [InlineData("xxxx-xx-xx")]
-        [InlineData("0000-00-00")]
-        [InlineData("0000-01-01")]
-        [InlineData("abcd-01-01")]
-        public void Expected_throw_FormatException(string badFormatDate)
+        [Fact]
+        public void Expected_Create_Valid_BirthDate_From_DateTime()
         {
             // Arrange
 
             // Act
-            var act = new Action(() => BirthDate.Create(badFormatDate));
+            var dateTime = DateTime.Today.AddYears(-18);
+            var birthDate = BirthDate.Create(dateTime);
 
             // Assert
-            act.Should().Throw<FormatException>();
+            birthDate.Value.Should().Be(dateTime);
         }
 
         [Theory]
@@ -58,6 +55,22 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.ValueObjectsTests
 
             // Assert
             birthDate.Value.Should().Be(originalBirthDate);
+        }
+
+        [Theory]
+        [InlineData("xxxx-xx-xx")]
+        [InlineData("0000-00-00")]
+        [InlineData("0000-01-01")]
+        [InlineData("abcd-01-01")]
+        public void Expected_throw_FormatException(string badFormatDate)
+        {
+            // Arrange
+
+            // Act
+            var act = new Action(() => BirthDate.Create(badFormatDate));
+
+            // Assert
+            act.Should().Throw<FormatException>();
         }
 
         [Theory]
