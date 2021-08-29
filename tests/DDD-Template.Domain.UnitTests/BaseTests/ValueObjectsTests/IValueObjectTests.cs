@@ -15,6 +15,11 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
             {
                 this.Value = value;
             }
+
+            public bool Equals(string other)
+            {
+                throw new NotImplementedException();
+            }
         }
 
         [Fact]
@@ -39,6 +44,11 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
             public DecimalValueObject(decimal value)
             {
                 this.Value = value;
+            }
+
+            public bool Equals(decimal other)
+            {
+                throw new NotImplementedException();
             }
         }
 
@@ -75,6 +85,11 @@ namespace DDD_Template.Domain.UnitTests.BaseTests.ValueObjectsTests
             public DateStructValueObject(DateStruct value)
             {
                 this.Value = value;
+            }
+
+            public bool Equals(DateStruct other)
+            {
+                throw new NotImplementedException();
             }
         }
 
