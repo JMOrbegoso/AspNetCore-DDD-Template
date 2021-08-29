@@ -5,8 +5,6 @@ namespace DDD_Template.Domain.Users.ValueObjects
 {
     public sealed record BirthDate : ValueObject<DateTime>
     {
-        public const string OldestDateString = "1920-01-01";
-
         private BirthDate() { }
         private BirthDate(DateTime birthDate) : base(birthDate) { }
 
