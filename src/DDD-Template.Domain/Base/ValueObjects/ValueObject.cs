@@ -20,5 +20,9 @@ namespace DDD_Template.Domain.Base.ValueObjects
         {
             return this.Value.Equals(other);
         }
+
+        public static bool operator ==(ValueObject<T> a, T b) => a.Equals(b);
+
+        public static bool operator !=(ValueObject<T> a, T b) => !a.Equals(b);
     }
 }
