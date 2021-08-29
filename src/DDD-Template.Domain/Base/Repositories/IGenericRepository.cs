@@ -2,17 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace DDD_Template.Domain.Base.Repositories
 {
     public interface IGenericRepository<TEntity> where TEntity : IEntity
     {
-        Task<IEnumerable<TEntity>> GetAllAsync();
+        IEnumerable<TEntity> GetAll();
 
-        Task<TEntity> GetByIdAsync(Guid id);
+        TEntity GetById(Guid id);
 
-        Task<IEnumerable<TEntity>> FindAllAsync(Expression<Func<TEntity, bool>> predicate);
+        IEnumerable<TEntity> FindAll(Expression<Func<TEntity, bool>> predicate);
 
         void Add(TEntity entity);
 
