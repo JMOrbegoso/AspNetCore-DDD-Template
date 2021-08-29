@@ -9,8 +9,6 @@ namespace DDD_Template.Domain.Users.ValueObjects
 
         private BirthDate() { }
         private BirthDate(DateTime birthDate) : base(birthDate) { }
-        private BirthDate(int year, int month, int day) : base(new DateTime(year, month, day)) { }
-        private BirthDate(string birthDateString) : base(DateTime.Parse(birthDateString)) { }
 
         public static BirthDate Create(DateTime value)
         {
@@ -18,11 +16,13 @@ namespace DDD_Template.Domain.Users.ValueObjects
         }
         public static BirthDate Create(int year, int month, int day)
         {
-            return new BirthDate(year, month, day);
+            var value = new DateTime(year, month, day);
+            return new BirthDate(value);
         }
         public static BirthDate Create(string birthDateString)
         {
-            return new BirthDate(birthDateString);
+            var value = DateTime.Parse(birthDateString);
+            return new BirthDate(value);
         }
 
         protected override void Validate(DateTime value) { }
