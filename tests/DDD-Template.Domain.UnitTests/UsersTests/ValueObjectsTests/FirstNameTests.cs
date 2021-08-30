@@ -127,5 +127,25 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.ValueObjectsTests
             // Assert
             (originalFirstName != otherFirstName).Should().BeTrue();
         }
+
+        [Theory]
+        [InlineData("John", "J", true)]
+        [InlineData("John", "Jo", true)]
+        [InlineData("John", "Joh", true)]
+        [InlineData("John", "John", true)]
+        [InlineData("John", " ", false)]
+        [InlineData("John", "JJ", false)]
+        [InlineData("John", "Johny", false)]
+        public void Expected_FirstName_Contains(string firstNameString, string valueToFind, bool expected)
+        {
+            // Arrange
+
+            // Act
+            var firstName = FirstName.Create(firstNameString);
+            var contains = firstName.Contains(valueToFind);
+
+            // Assert
+            contains.Should().Be(expected);
+        }
     }
 }
