@@ -147,5 +147,22 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.ValueObjectsTests
             // Assert
             contains.Should().Be(expected);
         }
+
+        [Theory]
+        [InlineData(1)]
+        [InlineData(10)]
+        [InlineData(30)]
+        [InlineData(64)]
+        public void Expected_FirstName_ToString(int length)
+        {
+            // Arrange
+            var firstNameString = StringHelpers.RandomStringGenerator(length);
+
+            // Act
+            var firstName = FirstName.Create(firstNameString);
+
+            // Assert
+            firstName.ToString().Should().Be(firstNameString);
+        }
     }
 }
