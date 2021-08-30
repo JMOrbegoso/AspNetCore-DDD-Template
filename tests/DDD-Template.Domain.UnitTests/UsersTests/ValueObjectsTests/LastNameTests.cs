@@ -127,5 +127,41 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.ValueObjectsTests
             // Assert
             (originalLastName != otherLastName).Should().BeTrue();
         }
+
+        [Theory]
+        [InlineData("Doe", "D", true)]
+        [InlineData("Doe", "Do", true)]
+        [InlineData("Doe", "Doe", true)]
+        [InlineData("Doe", " ", false)]
+        [InlineData("Doe", "DD", false)]
+        [InlineData("Doe", "Doeh", false)]
+        public void Expected_LastName_Contains(string lastNameString, string valueToFind, bool expected)
+        {
+            // Arrange
+
+            // Act
+            var lastName = LastName.Create(lastNameString);
+            var contains = lastName.Contains(valueToFind);
+
+            // Assert
+            contains.Should().Be(expected);
+        }
+
+        [Theory]
+        [InlineData(1)]
+        [InlineData(10)]
+        [InlineData(30)]
+        [InlineData(64)]
+        public void Expected_LastName_ToString(int length)
+        {
+            // Arrange
+            var lastNameString = StringHelpers.RandomStringGenerator(length);
+
+            // Act
+            var lastName = LastName.Create(lastNameString);
+
+            // Assert
+            lastName.ToString().Should().Be(lastNameString);
+        }
     }
 }

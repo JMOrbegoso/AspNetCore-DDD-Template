@@ -28,5 +28,10 @@ namespace DDD_Template.Domain.Users.ValueObjects
         {
             return this.Value;
         }
+
+        public bool Contains(string value)
+        {
+            return this.Value.Contains(value);
+        }
     }
 }
