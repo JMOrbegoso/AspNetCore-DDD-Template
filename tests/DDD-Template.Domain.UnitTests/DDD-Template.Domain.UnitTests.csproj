@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Bogus" Version="33.1.1" />
     <PackageReference Include="FluentAssertions" Version="6.1.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
@@ -23,7 +24,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\DDD-Template.Domain\DDD-Template.Domain.csproj" />
-    <ProjectReference Include="..\DDD-Template.TestHelpers\DDD-Template.TestHelpers.csproj" />
   </ItemGroup>
 
 </Project>

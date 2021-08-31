@@ -1,6 +1,6 @@
-﻿using DDD_Template.Domain.Users.Exceptions;
+﻿using Bogus.DataSets;
+using DDD_Template.Domain.Users.Exceptions;
 using DDD_Template.Domain.Users.ValueObjects;
-using DDD_Template.TestHelpers;
 using FluentAssertions;
 using System;
 using Xunit;
@@ -44,7 +44,8 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.ValueObjectsTests
         public void Expected_throw_LastNameIsTooLongException(int length)
         {
             // Arrange
-            var lastNameString = StringHelpers.RandomStringGenerator(length);
+            var lorem = new Lorem();
+            var lastNameString = lorem.Letter(length);
 
             // Act
             var act = new Action(() => LastName.Create(lastNameString));
@@ -61,7 +62,8 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.ValueObjectsTests
         public void Expected_Create_Valid_LastName(int length)
         {
             // Arrange
-            var lastNameString = StringHelpers.RandomStringGenerator(length);
+            var lorem = new Lorem();
+            var lastNameString = lorem.Letter(length);
 
             // Act
             var lastName = LastName.Create(lastNameString);
@@ -155,7 +157,8 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.ValueObjectsTests
         public void Expected_LastName_ToString(int length)
         {
             // Arrange
-            var lastNameString = StringHelpers.RandomStringGenerator(length);
+            var lorem = new Lorem();
+            var lastNameString = lorem.Letter(length);
 
             // Act
             var lastName = LastName.Create(lastNameString);
