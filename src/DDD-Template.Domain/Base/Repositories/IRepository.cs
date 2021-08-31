@@ -9,7 +9,7 @@ namespace DDD_Template.Domain.Base.Repositories
     {
         IImmutableList<T> GetAll();
 
-        T GetById(Guid id);
+        T Find(Guid id);
 
         IImmutableList<T> Where(Expression<Func<T, bool>> predicate);
     }

@@ -23,7 +23,7 @@ namespace DDD_Template.Infrastructure.Repositories
             return this._dbSet.ToImmutableList();
         }
 
-        public User GetById(Guid id)
+        public User Find(Guid id)
         {
             return this._dbSet.Find(id);
         }
