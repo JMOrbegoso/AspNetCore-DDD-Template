@@ -24,7 +24,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\DDD-Template.Domain\DDD-Template.Domain.csproj" />
-    <ProjectReference Include="..\DDD-Template.TestHelpers\DDD-Template.TestHelpers.csproj" />
   </ItemGroup>
 
 </Project>
