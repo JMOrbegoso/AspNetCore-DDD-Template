@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace DDD_Template.Domain.Base.Repositories
 {
-    public interface IGenericRepository<TEntity> where TEntity : IEntity
+    public interface IGenericRepository<TEntity> where TEntity : IAggregateRoot
     {
         IImmutableList<TEntity> GetAll();
 
