@@ -28,7 +28,7 @@ namespace DDD_Template.Infrastructure.Repositories
             return this._dbSet.Find(id);
         }
 
-        public IImmutableList<User> FindAll(Expression<Func<User, bool>> predicate)
+        public IImmutableList<User> Where(Expression<Func<User, bool>> predicate)
         {
             return this._dbSet.Where(predicate).ToImmutableList();
         }

@@ -11,6 +11,6 @@ namespace DDD_Template.Domain.Base.Repositories
 
         T GetById(Guid id);
 
-        IImmutableList<T> FindAll(Expression<Func<T, bool>> predicate);
+        IImmutableList<T> Where(Expression<Func<T, bool>> predicate);
     }
 }
