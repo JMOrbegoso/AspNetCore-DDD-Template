@@ -11,28 +11,28 @@ namespace DDD_Template.Infrastructure.Repositories
 {
     public sealed class UnitOfWork : IUnitOfWork
     {
-        private ApplicationDbContext _applicationDbContext { get; }
+        private ApplicationDbContext _context { get; }
         private IDomainEventDispatcher _dispatcher { get; }
 
         public IUsersRepository UsersRepository { get; }
 
-        public UnitOfWork(ApplicationDbContext applicationDbContext, IDomainEventDispatcher dispatcher)
+        public UnitOfWork(ApplicationDbContext context, IDomainEventDispatcher dispatcher)
         {
-            this._applicationDbContext = applicationDbContext;
+            this._context = context;
             this._dispatcher = dispatcher;
 
-            this.UsersRepository = new UsersRepository(applicationDbContext);
+            this.UsersRepository = new UsersRepository(context);
         }
 
         public async Task<int> CommitChangesAsync()
         {
             await this.dispatchDomainEvents();
-            return await this._applicationDbContext.SaveChangesAsync();
+            return await this._context.SaveChangesAsync();
         }
 
         private async Task dispatchDomainEvents()
         {
-            var changeTracker = this._applicationDbContext.ChangeTracker;
+            var changeTracker = this._context.ChangeTracker;
 
             var domainEvents = changeTracker.Entries<IAggregateRoot>()
                                             .Select(e => e.Entity)
@@ -47,7 +47,7 @@ namespace DDD_Template.Infrastructure.Repositories
 
         public void Dispose()
         {
-            this._applicationDbContext.Dispose();
+            this._context.Dispose();
             GC.SuppressFinalize(this);
         }
     }
