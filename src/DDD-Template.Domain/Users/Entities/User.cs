@@ -22,10 +22,6 @@ namespace DDD_Template.Domain.Users.Entities
             this.BirthDate = birthDate;
         }
 
-        public static User Create(FirstName firstName, LastName lastName, BirthDate birthDate)
-        {
-            return User.Create(Guid.NewGuid(), firstName, lastName, birthDate);
-        }
         public static User Create(Guid id, FirstName firstName, LastName lastName, BirthDate birthDate)
         {
             var user = new User(id, firstName, lastName, birthDate);

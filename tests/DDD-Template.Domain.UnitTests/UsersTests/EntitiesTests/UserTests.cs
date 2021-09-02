@@ -11,7 +11,7 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
     public class UserTests
     {
         [Fact]
-        public void Expected_Create_User_with_Id()
+        public void Expected_Create_User()
         {
             // Arrange
             var id = Guid.NewGuid();
@@ -24,25 +24,6 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
 
             // Assert
             user.Id.Should().Be(id);
-            user.FirstName.Should().Be(firstName);
-            user.LastName.Should().Be(lastName);
-            user.BirthDate.Should().Be(birthDate);
-            user.DomainEvents.Should().ContainItemsAssignableTo<UserCreatedDomainEvent>().And.ContainSingle();
-        }
-
-        [Fact]
-        public void Expected_Create_User_without_Id()
-        {
-            // Arrange
-            var firstName = FirstName.Create("John");
-            var lastName = LastName.Create("Doe");
-            var birthDate = BirthDate.Create(2000, 10, 10);
-
-            // Act
-            var user = User.Create(firstName, lastName, birthDate);
-
-            // Assert
-            user.Id.Should().NotBeEmpty();
             user.FirstName.Should().Be(firstName);
             user.LastName.Should().Be(lastName);
             user.BirthDate.Should().Be(birthDate);
