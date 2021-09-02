@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace DDD_Template.Domain.UnitTests.BaseTests.EntitiesTests
+namespace DDD_Template.UnitTests.BaseTests.EntitiesTests
 {
     public class IAggregateRootTests
     {

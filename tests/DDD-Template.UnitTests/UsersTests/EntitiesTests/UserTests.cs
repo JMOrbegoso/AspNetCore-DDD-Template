@@ -6,7 +6,7 @@ using FluentAssertions;
 using System;
 using Xunit;
 
-namespace DDD_Template.Domain.UnitTests.UsersTests.EntitiesTests
+namespace DDD_Template.UnitTests.UsersTests.EntitiesTests
 {
     public class UserTests
     {

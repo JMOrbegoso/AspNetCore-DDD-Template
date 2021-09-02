@@ -7,7 +7,7 @@ using System;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace DDD_Template.Application.UnitTests.DomainEventsTests
+namespace DDD_Template.UnitTests.DomainEventsTests
 {
     public class MediatrDomainEventDispatcherTests
     {

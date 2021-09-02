@@ -3,7 +3,7 @@ using FluentAssertions;
 using System;
 using Xunit;
 
-namespace DDD_Template.Domain.UnitTests.BaseTests.DomainEventsTests
+namespace DDD_Template.UnitTests.BaseTests.DomainEventsTests
 {
     public class DomainEventTests
     {

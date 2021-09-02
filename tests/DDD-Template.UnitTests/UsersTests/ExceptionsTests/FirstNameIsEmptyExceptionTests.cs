@@ -3,9 +3,9 @@ using FluentAssertions;
 using System;
 using Xunit;
 
-namespace DDD_Template.Domain.UnitTests.UsersTests.ExceptionsTests
+namespace DDD_Template.UnitTests.UsersTests.ExceptionsTests
 {
-    public class UpdateBirthDateExceptionTests
+    public class FirstNameIsEmptyExceptionTests
     {
         [Fact]
         public void Expected_throw_exception_with_message()
@@ -13,10 +13,10 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.ExceptionsTests
             // Arrange
 
             // Act
-            var act = new Action(() => throw new UpdateBirthDateException());
+            var act = new Action(() => throw new FirstNameIsEmptyException());
 
             // Assert
-            act.Should().Throw<UpdateBirthDateException>().WithMessage("*BirthDate*");
+            act.Should().Throw<FirstNameIsEmptyException>().WithMessage("*FirstName*");
         }
     }
 }

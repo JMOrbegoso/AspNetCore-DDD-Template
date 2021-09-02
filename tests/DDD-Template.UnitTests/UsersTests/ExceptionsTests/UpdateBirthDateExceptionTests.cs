@@ -3,9 +3,9 @@ using FluentAssertions;
 using System;
 using Xunit;
 
-namespace DDD_Template.Domain.UnitTests.UsersTests.ExceptionsTests
+namespace DDD_Template.UnitTests.UsersTests.ExceptionsTests
 {
-    public class FirstNameIsTooLongExceptionTests
+    public class UpdateBirthDateExceptionTests
     {
         [Fact]
         public void Expected_throw_exception_with_message()
@@ -13,10 +13,10 @@ namespace DDD_Template.Domain.UnitTests.UsersTests.ExceptionsTests
             // Arrange
 
             // Act
-            var act = new Action(() => throw new FirstNameIsTooLongException());
+            var act = new Action(() => throw new UpdateBirthDateException());
 
             // Assert
-            act.Should().Throw<FirstNameIsTooLongException>().WithMessage("*FirstName*");
+            act.Should().Throw<UpdateBirthDateException>().WithMessage("*BirthDate*");
         }
     }
 }

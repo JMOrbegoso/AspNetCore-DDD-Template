@@ -4,7 +4,7 @@ using FluentAssertions;
 using System;
 using Xunit;
 
-namespace DDD_Template.Domain.UnitTests.BaseTests.EntitiesTests
+namespace DDD_Template.UnitTests.BaseTests.EntitiesTests
 {
     public class AggregateRootTests
     {

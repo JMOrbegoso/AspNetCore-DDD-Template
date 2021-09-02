@@ -3,7 +3,7 @@ using FluentAssertions;
 using System;
 using Xunit;
 
-namespace DDD_Template.Domain.UnitTests.UsersTests.ExceptionsTests
+namespace DDD_Template.UnitTests.UsersTests.ExceptionsTests
 {
     public class UpdateFirstNameExceptionTests
     {

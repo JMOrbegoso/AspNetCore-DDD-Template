@@ -5,7 +5,7 @@ using FluentAssertions;
 using System;
 using Xunit;
 
-namespace DDD_Template.Domain.UnitTests.UsersTests.ValueObjectsTests
+namespace DDD_Template.UnitTests.UsersTests.ValueObjectsTests
 {
     public class FirstNameTests
     {
